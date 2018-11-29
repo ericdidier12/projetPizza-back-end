@@ -91,27 +91,27 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-/*
-       http.csrf().disable();
-        http
-                .authorizeRequests()
-                .antMatchers(AUTHORIZED_REQUESTS_ADMIN).hasRole("ADMIN")
-                .antMatchers(AUTHORIZED_REQUESTS_USER).hasRole("USER")
-                .antMatchers(AUTHORIZED_REQUESTS_ANYBODY).permitAll()
-                .antMatchers(staticResources).permitAll()
-                .anyRequest().authenticated()
 
-                .and()
-                .formLogin()
-                .successHandler(new SavedRequestAwareAuthenticationSuccessHandler())
-                .loginPage(LOGIN_REQUEST)
-                .defaultSuccessUrl("/home")
-                .permitAll()
-                .and()
-                .logout()
-                .logoutSuccessUrl("/home")
-                .permitAll();
-                 */
+//       http.csrf().disable();
+//        http
+//                .authorizeRequests()
+//                .antMatchers(AUTHORIZED_REQUESTS_ADMIN).hasRole("ADMIN")
+//                .antMatchers(AUTHORIZED_REQUESTS_USER).hasRole("USER")
+//                .antMatchers(AUTHORIZED_REQUESTS_ANYBODY).permitAll()
+//                .antMatchers(staticResources).permitAll()
+//                .anyRequest().authenticated()
+//
+//                .and()
+//                .formLogin()
+//                .successHandler(new SavedRequestAwareAuthenticationSuccessHandler())
+//                .loginPage(LOGIN_REQUEST)
+//                .defaultSuccessUrl("/home")
+//                .permitAll()
+//                .and()
+//                .logout()
+//                .logoutSuccessUrl("/home")
+//                .permitAll();
+//
 
 
         http

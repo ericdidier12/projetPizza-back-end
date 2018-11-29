@@ -7,10 +7,10 @@ server:
 spring:
   datasource:
     username: postgres
-    password: BuSI
+    password: 1234
     url: jdbc:postgresql://localhost:5432/pizzeriadb1
-  jpa:
-    database: POSTGRESQL
-    generate-ddl: true
-    hibernate.ddl-auto: update
-    show-sql: true
+#  jpa:
+#    database: POSTGRESQL
+#    generate-ddl: true
+#    hibernate.ddl-auto: update
+#    show-sql: true
