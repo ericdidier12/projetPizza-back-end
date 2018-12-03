@@ -2,6 +2,8 @@ package eu.busi.projetpizza.filter;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import eu.busi.projetpizza.dataAcces.entity.UserEntity;
+import eu.busi.projetpizza.model.Constants;
 import eu.busi.projetpizza.model.User;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -34,12 +36,11 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 
     private final AuthenticationManager authenticationManager;
 
-    private final String secret;
+    private  String secret;
 
-    public JwtAuthenticationFilter(AuthenticationManager authenticationManager, String secret) {
+    public JwtAuthenticationFilter(AuthenticationManager authenticationManager) {
         setFilterProcessesUrl("/api/login");
         this.authenticationManager = authenticationManager;
-        this.secret = secret;
     }
 
     /**
@@ -54,11 +55,15 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
 
+        User user = null ;
         try {
-            User user = new ObjectMapper().readValue(request.getInputStream(), User.class); // request.getInputStream() = contenue de la requete, UserFormDTO.class= serialise desaserailisatio en ce type objet
-            return authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.name, user.username, Collections.emptyList()));
+            user = new ObjectMapper().readValue(request.getInputStream(), User.class);
+            System.out.println("******************************");
+            System.out.println("username :" + user.getUsername());
+            System.out.println("password :" + user.getPassword());
+            return authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword(), Collections.emptyList()));
         } catch (IOException e) {
-            throw new RuntimeException();
+            throw new RuntimeException(e);
         }
     }
 
@@ -72,7 +77,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
      * <br/>
      *
      * @param request
-     * @param response
+     * @param  response
      * @param chain      Objet qui accompagne sringSecurity
      * @param authResult l'objet renvoyé par la méthode attemptAuthentication .
      * @throws IOException
@@ -82,15 +87,14 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) throws IOException, ServletException {
 
         String token = Jwts.builder()
-                .setSubject(((User) authResult.getPrincipal()).getUsername()) // cest quoi le sujet de token, je recupere username grace à l'ojet Authentication
+                .setSubject(((UserEntity) authResult.getPrincipal()).getUsername()) // cest quoi le sujet de token, je recupere username grace à l'ojet Authentication
                 .claim("authorities", authResult.getAuthorities()
                         .stream()
                         .map(GrantedAuthority::getAuthority)
                         .collect(Collectors.toList())) // comme claims son nom est "authorities"  je recupere le role
-                .setExpiration(new Date(System.currentTimeMillis() + 964000000)) //delait expiration
-                .signWith(SignatureAlgorithm.HS512, secret.getBytes()) // Je vais signe se token avec le mot de passe HS512 + le mot de passe
+                .setExpiration(new Date(System.currentTimeMillis() + Constants.EXPIRATION_TIME)) //delait expiration
+                .signWith(SignatureAlgorithm.HS512,Constants.SECRET) // Je vais signe se token avec le mot de passe HS512 + le mot de passe
                 .compact();
-
-        response.addHeader("Authorization", "Bearer " + token);
+        response.addHeader(Constants.HEADER_STRING, Constants.TOKEN_PREFIX+token);
     }
 }

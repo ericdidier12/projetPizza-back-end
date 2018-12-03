@@ -3,9 +3,9 @@ package eu.busi.projetpizza.configuration;
 import eu.busi.projetpizza.filter.JwtAuthenticationFilter;
 import eu.busi.projetpizza.filter.JwtAuthorizationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -13,8 +13,9 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
+
 import org.springframework.security.config.http.SessionCreationPolicy;
+
 
 @Configuration
 @EnableWebSecurity
@@ -39,10 +40,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             "/admin/ajouterAuPanier"
 
             };
-
-
-    @Value("${secret}")
-    private String secret ;
 
 
     private static final String[] AUTHORIZED_REQUESTS_ADMIN = new String[]{
@@ -91,47 +88,48 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-/*
-       http.csrf().disable();
+
+//       http.csrf().disable();
+//        http
+//                .authorizeRequests()
+//                .antMatchers(AUTHORIZED_REQUESTS_ADMIN).hasRole("ADMIN")
+//                .antMatchers(AUTHORIZED_REQUESTS_USER).hasRole("USER")
+//                .antMatchers(AUTHORIZED_REQUESTS_ANYBODY).permitAll()
+//                .antMatchers(staticResources).permitAll()
+//                .anyRequest().authenticated()
+//
+//                .and()
+//                .formLogin()
+//                .successHandler(new SavedRequestAwareAuthenticationSuccessHandler())
+//                .loginPage(LOGIN_REQUEST)
+//                .defaultSuccessUrl("/home")
+//                .permitAll()
+//                .and()
+//                .logout()
+//                .logoutSuccessUrl("/home")
+//                .permitAll();
+
+
+
         http
                 .authorizeRequests()
-                .antMatchers(AUTHORIZED_REQUESTS_ADMIN).hasRole("ADMIN")
-                .antMatchers(AUTHORIZED_REQUESTS_USER).hasRole("USER")
-                .antMatchers(AUTHORIZED_REQUESTS_ANYBODY).permitAll()
-                .antMatchers(staticResources).permitAll()
-                .anyRequest().authenticated()
-
-                .and()
-                .formLogin()
-                .successHandler(new SavedRequestAwareAuthenticationSuccessHandler())
-                .loginPage(LOGIN_REQUEST)
-                .defaultSuccessUrl("/home")
-                .permitAll()
-                .and()
-                .logout()
-                .logoutSuccessUrl("/home")
-                .permitAll();
-                 */
-
-
-        http
-                .authorizeRequests()
-                .antMatchers("/api/user/**").hasAnyRole("USER", "ADMIN")
-                .antMatchers("/api/admin/**").hasAnyRole("ADMIN")
+                .antMatchers("/api/user/**").hasAnyRole("USER")
+                .antMatchers("/api/admin/**").hasAnyRole("ADMIN", "WORKER")
                 .antMatchers("/api/**").permitAll()
                 .antMatchers("/**").permitAll()
                 .anyRequest().authenticated()
                 .and().exceptionHandling()
                 .authenticationEntryPoint((request, response, e) -> response.sendError(401))
                 .and()
-                .addFilter(new JwtAuthenticationFilter(authenticationManager(), secret))
-                .addFilter(new JwtAuthorizationFilter(authenticationManager(), secret))
+                .addFilter(new JwtAuthenticationFilter(authenticationManager()))
+                .addFilter(new JwtAuthorizationFilter(authenticationManager()))
                 .csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS) // important permet de desactive la session.
                 .and().headers().frameOptions().disable();
 
 
     }
+
 
     @Bean
     public PasswordEncoder passwordEncoder() {
