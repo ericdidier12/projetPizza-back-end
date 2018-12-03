@@ -224,7 +224,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Maven.projetPizza-back-end install clean">
+  <component name="RunManager" selected="Spring Boot.PizzaApplication">
     <configuration name="projetPizza-back-end install clean" type="MavenRunConfiguration" factoryName="Maven">
       <MavenSettings>
         <option name="myGeneralSettings" />
