@@ -16,7 +16,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Primary
@@ -47,6 +48,15 @@ public class UserDAO implements UserDetailsService {
         return found;
     }
 
+
     public User findByUsername(String name){
         return UserConverter.userEntityToUserModel(userRepository.findByUsername(name));}
+
+        public List<User>  getAllUsers(){
+        List<User> users = new ArrayList<>();
+            for (UserEntity userEntity : userRepository.findAll()) {
+                users.add(UserConverter.userEntityToUserModel(userEntity));
+            }
+            return users;
+        }
 }

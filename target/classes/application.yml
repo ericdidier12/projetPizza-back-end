@@ -1,4 +1,3 @@
-secret: BouleDeGomme
 server:
   port: 8080
   servlet:

@@ -53,6 +53,7 @@ eu\busi\projetpizza\dataAcces\repository\OrderRepository.class
 eu\busi\projetpizza\dataAcces\util\UserConverter.class
 eu\busi\projetpizza\dataAcces\repository\PizzaRepository.class
 eu\busi\projetpizza\model\Ingredient.class
+eu\busi\projetpizza\controllerrest\PizzaRController.class
 eu\busi\projetpizza\controller\WelcomeController.class
 eu\busi\projetpizza\dataAcces\repository\PromoEntityRepository.class
 eu\busi\projetpizza\dataAcces\repository\UserRepository.class

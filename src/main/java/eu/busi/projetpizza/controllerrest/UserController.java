@@ -6,7 +6,6 @@ import eu.busi.projetpizza.enums.RoleEnum;
 import eu.busi.projetpizza.model.User;
 import eu.busi.projetpizza.service.UserService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,8 +35,7 @@ public class UserController {
 
     @GetMapping("/user/whoami")
     public ResponseEntity whoAmI(Principal principal) {
-        UserDetails userDetails = userDAO.loadUserByUsername(principal.getName());
-        UserEntity user = (UserEntity) userDetails;
+        UserEntity user = (UserEntity) userDetailsService.loadUserByUsername(principal.getName());
         user.setPassword(null);
         return ResponseEntity.ok(user);
     }
