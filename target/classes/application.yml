@@ -1,0 +1,16 @@
+secret: BouleDeGomme
+server:
+  port: 8080
+  servlet:
+    context-path: /pizzeria
+
+spring:
+  datasource:
+    username: postgres
+    password: 1234
+    url: jdbc:postgresql://localhost:5432/pizzeriadb
+#  jpa:
+#    database: POSTGRESQL
+#    generate-ddl: true
+#    hibernate.ddl-auto: update
+#    show-sql: true
