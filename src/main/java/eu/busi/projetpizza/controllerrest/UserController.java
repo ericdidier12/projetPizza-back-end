@@ -1,9 +1,12 @@
 package eu.busi.projetpizza.controllerrest;
 
+import eu.busi.projetpizza.dataAcces.dao.UserDAO;
+import eu.busi.projetpizza.dataAcces.entity.UserEntity;
 import eu.busi.projetpizza.enums.RoleEnum;
 import eu.busi.projetpizza.model.User;
 import eu.busi.projetpizza.service.UserService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,10 +20,12 @@ public class UserController {
     private final UserService userService;
 
     private final UserDetailsService userDetailsService;
+    private final UserDAO userDAO ;
 
-    public UserController(UserService userService, UserDetailsService userDetailsService) {
+    public UserController(UserService userService, UserDetailsService userDetailsService, UserDAO userDAO) {
         this.userService = userService;
         this.userDetailsService = userDetailsService;
+        this.userDAO = userDAO;
     }
 
     @PostMapping("/register")
@@ -31,7 +36,8 @@ public class UserController {
 
     @GetMapping("/user/whoami")
     public ResponseEntity whoAmI(Principal principal) {
-        User user = (User) userDetailsService.loadUserByUsername(principal.getName());
+        UserDetails userDetails = userDAO.loadUserByUsername(principal.getName());
+        UserEntity user = (UserEntity) userDetails;
         user.setPassword(null);
         return ResponseEntity.ok(user);
     }
