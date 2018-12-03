@@ -27,7 +27,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             "/home",
             "/pizza/ajouterAuPanier",
             "/pizza",
-            "/api/pizzas",
             "/cart",
             "/cart/sendDelete",
             "/cart/sendSubstract",
@@ -128,14 +127,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS) // important permet de desactive la session.
                 .and().headers().frameOptions().disable();
 
-<<<<<<< HEAD
+
     }
-=======
 
-
-
-  }
->>>>>>> 81880530b78c3223707acbdaa47b3cd33ba6da57
 
     @Bean
     public PasswordEncoder passwordEncoder() {
