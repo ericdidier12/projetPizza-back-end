@@ -5,6 +5,7 @@ import eu.busi.projetpizza.filter.JwtAuthorizationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -26,6 +27,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             "/home",
             "/pizza/ajouterAuPanier",
             "/pizza",
+            "/api/pizzas",
             "/cart",
             "/cart/sendDelete",
             "/cart/sendSubstract",
@@ -87,27 +89,27 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-/*
-       http.csrf().disable();
-        http
-                .authorizeRequests()
-                .antMatchers(AUTHORIZED_REQUESTS_ADMIN).hasRole("ADMIN")
-                .antMatchers(AUTHORIZED_REQUESTS_USER).hasRole("USER")
-                .antMatchers(AUTHORIZED_REQUESTS_ANYBODY).permitAll()
-                .antMatchers(staticResources).permitAll()
-                .anyRequest().authenticated()
 
-                .and()
-                .formLogin()
-                .successHandler(new SavedRequestAwareAuthenticationSuccessHandler())
-                .loginPage(LOGIN_REQUEST)
-                .defaultSuccessUrl("/home")
-                .permitAll()
-                .and()
-                .logout()
-                .logoutSuccessUrl("/home")
-                .permitAll();
-                 */
+//       http.csrf().disable();
+//        http
+//                .authorizeRequests()
+//                .antMatchers(AUTHORIZED_REQUESTS_ADMIN).hasRole("ADMIN")
+//                .antMatchers(AUTHORIZED_REQUESTS_USER).hasRole("USER")
+//                .antMatchers(AUTHORIZED_REQUESTS_ANYBODY).permitAll()
+//                .antMatchers(staticResources).permitAll()
+//                .anyRequest().authenticated()
+//
+//                .and()
+//                .formLogin()
+//                .successHandler(new SavedRequestAwareAuthenticationSuccessHandler())
+//                .loginPage(LOGIN_REQUEST)
+//                .defaultSuccessUrl("/home")
+//                .permitAll()
+//                .and()
+//                .logout()
+//                .logoutSuccessUrl("/home")
+//                .permitAll();
+
 
 
         http
@@ -126,7 +128,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS) // important permet de desactive la session.
                 .and().headers().frameOptions().disable();
 
+<<<<<<< HEAD
     }
+=======
+
+
+
+  }
+>>>>>>> 81880530b78c3223707acbdaa47b3cd33ba6da57
 
     @Bean
     public PasswordEncoder passwordEncoder() {

@@ -6,6 +6,7 @@ server:
 spring:
   datasource:
     username: postgres
+<<<<<<< HEAD
     password: BuSI
     url: jdbc:postgresql://localhost:5432/pizzeriadb1
   jpa:
@@ -16,3 +17,12 @@ spring:
 security:
   basic:
     enabled: false
+=======
+    password: 1234
+    url: jdbc:postgresql://localhost:5432/pizzeriadb
+#  jpa:
+#    database: POSTGRESQL
+#    generate-ddl: true
+#    hibernate.ddl-auto: update
+#    show-sql: true
+>>>>>>> 81880530b78c3223707acbdaa47b3cd33ba6da57
