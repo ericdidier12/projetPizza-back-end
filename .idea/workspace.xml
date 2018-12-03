@@ -3,31 +3,25 @@
   <component name="ChangeListManager">
     <list default="true" id="c4817576-41f3-4a6a-9327-f1010b201bc5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/eu/busi/projetpizza/configuration/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/busi/projetpizza/configuration/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/eu/busi/projetpizza/controllerrest/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/busi/projetpizza/controllerrest/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/eu/busi/projetpizza/dataAcces/dao/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/busi/projetpizza/dataAcces/dao/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/eu/busi/projetpizza/filter/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/eu/busi/projetpizza/filter/JwtAuthenticationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/eu/busi/projetpizza/configuration/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/eu/busi/projetpizza/configuration/SecurityConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/eu/busi/projetpizza/controllerrest/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/eu/busi/projetpizza/controllerrest/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/eu/busi/projetpizza/dataAcces/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/eu/busi/projetpizza/dataAcces/dao/UserDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/eu/busi/projetpizza/filter/JwtAuthenticationFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/eu/busi/projetpizza/filter/JwtAuthenticationFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/eu/busi/projetpizza/dataAcces/util/CategorieConveter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/eu/busi/projetpizza/dataAcces/util/CategorieConveter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/eu/busi/projetpizza/dataAcces/util/IngredientConveter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/eu/busi/projetpizza/dataAcces/util/IngredientConveter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/eu/busi/projetpizza/dataAcces/util/OderConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/eu/busi/projetpizza/dataAcces/util/OderConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/eu/busi/projetpizza/dataAcces/util/OderLineConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/eu/busi/projetpizza/dataAcces/util/OderLineConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/eu/busi/projetpizza/dataAcces/util/PizzaConveter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/eu/busi/projetpizza/dataAcces/util/PizzaConveter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/eu/busi/projetpizza/dataAcces/util/PromoConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/eu/busi/projetpizza/dataAcces/util/PromoConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/eu/busi/projetpizza/dataAcces/util/UserConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/eu/busi/projetpizza/dataAcces/util/UserConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/eu/busi/projetpizza/enums/EnumUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/eu/busi/projetpizza/enums/EnumUtils.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/eu/busi/projetpizza/filter/JwtAuthorizationFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/eu/busi/projetpizza/filter/JwtAuthorizationFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/eu/busi/projetpizza/model/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/eu/busi/projetpizza/model/Constants.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/projetPizza-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/projetPizza-0.0.1-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/projetPizza-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/projetPizza-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-eu.busi.projetpizza.PizzaApplicationTests.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-eu.busi.projetpizza.PizzaApplicationTests.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-eu.busi.projetpizza.dataAcces.util.CategorieConveterTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-eu.busi.projetpizza.dataAcces.util.CategorieConveterTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-eu.busi.projetpizza.dataAcces.util.UserConverterTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-eu.busi.projetpizza.dataAcces.util.UserConverterTest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/eu.busi.projetpizza.PizzaApplicationTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/eu.busi.projetpizza.PizzaApplicationTests.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/eu.busi.projetpizza.dataAcces.util.CategorieConveterTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/eu.busi.projetpizza.dataAcces.util.CategorieConveterTest.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/surefire-reports/eu.busi.projetpizza.dataAcces.util.PizzaConverterTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/eu.busi.projetpizza.dataAcces.util.PizzaConverterTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/eu.busi.projetpizza.dataAcces.util.PromoConverterTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/eu.busi.projetpizza.dataAcces.util.PromoConverterTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/eu.busi.projetpizza.dataAcces.util.UserConverterTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/eu.busi.projetpizza.dataAcces.util.UserConverterTest.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -95,18 +89,18 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="25" />
-          <entry key="java" value="32" />
+          <entry key="java" value="33" />
           <entry key="jsp" value="1" />
-          <entry key="xml" value="2" />
+          <entry key="xml" value="3" />
           <entry key="yml" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="25" />
-          <entry key="JAVA" value="32" />
+          <entry key="JAVA" value="33" />
           <entry key="JSP" value="1" />
-          <entry key="XML" value="2" />
+          <entry key="XML" value="3" />
           <entry key="YAML" value="5" />
         </counts>
       </usages-collector>
@@ -127,14 +121,19 @@
           <entry key="YAML" value="7" />
         </counts>
       </usages-collector>
+      <usages-collector id="statistics.vcs.git.usages">
+        <counts>
+          <entry key="git.branch.checkout.local" value="1" />
+        </counts>
+      </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/eu/busi/projetpizza/filter/JwtAuthenticationFilter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
+            <state relative-caret-position="70">
               <caret line="64" selection-start-line="64" selection-end-line="64" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -167,11 +166,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/eu/busi/projetpizza/controllerrest/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
+            <state relative-caret-position="287">
               <caret line="40" column="5" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/eu/busi/projetpizza/controllerrest/PizzaRController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="23" selection-start-line="23" selection-end-line="23" />
             </state>
           </provider>
         </entry>
@@ -310,6 +318,11 @@
             <path>
               <item name="projetPizza-back-end" type="b2602c69:ProjectViewProjectNode" />
               <item name="projetPizza-back-end" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="projetPizza-back-end" type="b2602c69:ProjectViewProjectNode" />
+              <item name="projetPizza-back-end" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="projetPizza-back-end" type="b2602c69:ProjectViewProjectNode" />
@@ -651,7 +664,7 @@
       <workItem from="1543408999605" duration="8490000" />
       <workItem from="1543494780391" duration="14634000" />
       <workItem from="1543805548795" duration="23394000" />
-      <workItem from="1543837505991" duration="1539000" />
+      <workItem from="1543837505991" duration="2311000" />
     </task>
     <task id="LOCAL-00001" summary="ajoute de la librairie token">
       <created>1543374879521</created>
@@ -695,7 +708,21 @@
       <option name="project" value="LOCAL" />
       <updated>1543830409299</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Mise en place de la security -&gt; JwtAuthentication &amp; JwtAuthorization&#10;et définition de nos route Api-Rest.">
+      <created>1543839424743</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1543839424743</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Mise en place de la security -&gt; JwtAuthentication &amp; JwtAuthorization&#10;et définition de nos route Api-Rest.">
+      <created>1543840019280</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1543840019280</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -713,7 +740,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69519000" />
+    <option name="totallyTimeSpent" value="70291000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -729,7 +756,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.62889516" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.45750707" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.45750707" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -737,9 +764,9 @@
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.3286119" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.3286119" />
-      <window_info anchor="bottom" id="Java Enterprise" order="11" />
+      <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.3286119" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="13" weight="0.44617563" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="13" visible="true" weight="0.44617563" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -855,13 +882,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/template/template.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="42" column="6" lean-forward="true" selection-start-line="41" selection-start-column="39" selection-end-line="42" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/managerpizza.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-816" />
@@ -1133,13 +1153,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/busi/projetpizza/controllerrest/PizzaRController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/eu/busi/projetpizza/model/User.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-272">
@@ -1192,16 +1205,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/eu/busi/projetpizza/controllerrest/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="40" column="5" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/eu/busi/projetpizza/filter/JwtAuthorizationFilter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="233">
@@ -1221,11 +1224,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/eu/busi/projetpizza/filter/JwtAuthenticationFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
+        <state relative-caret-position="70">
           <caret line="64" selection-start-line="64" selection-end-line="64" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/busi/projetpizza/controllerrest/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="40" column="5" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/uiDesigner.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-867" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/eu/busi/projetpizza/controllerrest/PizzaRController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
         </state>
       </provider>
     </entry>
