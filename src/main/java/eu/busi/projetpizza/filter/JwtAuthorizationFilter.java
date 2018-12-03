@@ -1,6 +1,7 @@
 package eu.busi.projetpizza.filter;
 
 import eu.busi.projetpizza.dataAcces.entity.Authority;
+import eu.busi.projetpizza.model.Constants;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import org.slf4j.Logger;
@@ -26,12 +27,12 @@ import java.util.stream.Collectors;
  */
 public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
 
-    private final String secret;
+
     private final Logger LOG = LoggerFactory.getLogger(JwtAuthorizationFilter.class);
 
-    public JwtAuthorizationFilter(AuthenticationManager authenticationManager, String secret) {
+    public JwtAuthorizationFilter(AuthenticationManager authenticationManager) {
         super(authenticationManager);
-        this.secret = secret;
+
     }
 
     /**
@@ -48,7 +49,7 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
 
-        String header = request.getHeader("Authorization");
+        String header = request.getHeader(Constants.HEADER_STRING);
         LOG.info("token reçu : "+ header);
         if (header == null || !header.startsWith("Bearer ")) { // on verifier si le token est null ou ne contient pas le prefix defini je quitte
             chain.doFilter(request, response);
@@ -63,7 +64,7 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
     private UsernamePasswordAuthenticationToken getAuthentication(String header) {
 
         Claims claims = Jwts.parser()
-                .setSigningKey(secret.getBytes())
+                .setSigningKey(Constants.SECRET)
                 .parseClaimsJws(header.replace("Bearer ", ""))
                 .getBody();// il me recupere le contenu de mon token
 

@@ -1,4 +1,3 @@
-secret: BouleDeGomme
 server:
   port: 8080
   servlet:
@@ -7,8 +6,9 @@ server:
 spring:
   datasource:
     username: postgres
-    password: 1234
-    url: jdbc:postgresql://localhost:5432/pizzeriadb
+
+    password: BuSI
+    url: jdbc:postgresql://localhost:5432/pizzeriadb1
 #  jpa:
 #    database: POSTGRESQL
 #    generate-ddl: true
