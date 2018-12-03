@@ -1,8 +1,0 @@
-eu\busi\projetpizza\dataAcces\dao\PizzaDAOTest.class
-eu\busi\projetpizza\dataAcces\util\PizzaConverterTest.class
-eu\busi\projetpizza\PizzaApplicationTests.class
-eu\busi\projetpizza\dataAcces\util\converter\StatusEnumConverterTest.class
-eu\busi\projetpizza\dataAcces\util\UserConverterTest.class
-eu\busi\projetpizza\enums\StatusEnumTest.class
-eu\busi\projetpizza\dataAcces\util\CategorieConveterTest.class
-eu\busi\projetpizza\dataAcces\util\PromoConverterTest.class
