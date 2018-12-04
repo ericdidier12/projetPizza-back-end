@@ -37,7 +37,7 @@ public class User {
     private boolean enabled;
     private List<Authority> authorities;
 
-    @DateTimeFormat(pattern = "MM/dd/yyyy")
+   @DateTimeFormat(pattern = "MM/dd/yyyy")
     private LocalDate birth_date;
 
     @NotEmpty(message = "adresse can't be empty")
