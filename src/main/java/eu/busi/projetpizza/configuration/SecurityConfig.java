@@ -15,6 +15,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 
 @Configuration
@@ -109,12 +111,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                .logoutSuccessUrl("/home")
 //                .permitAll();
 
-
-
         http
                 .authorizeRequests()
-                .antMatchers("/api/user/**").hasAnyRole("USER")
-                .antMatchers("/api/admin/**").hasAnyRole("ADMIN", "WORKER")
+                .antMatchers("/api/user/**").hasAnyRole("ROLE_USER")
+                .antMatchers("/api/admin/**").hasAnyRole("ROLE_ADMIN", "ROLE_USER")
                 .antMatchers("/api/**").permitAll()
                 .antMatchers("/**").permitAll()
                 .anyRequest().authenticated()
@@ -122,8 +122,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authenticationEntryPoint((request, response, e) -> response.sendError(401))
                 .and()
                 .addFilter(new JwtAuthenticationFilter(authenticationManager()))
-                .addFilter(new JwtAuthorizationFilter(authenticationManager()))
-                .csrf().disable()
+                .addFilterBefore(new JwtAuthorizationFilter(authenticationManager()), UsernamePasswordAuthenticationFilter.class);
+                http.csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS) // important permet de desactive la session.
                 .and().headers().frameOptions().disable();
 
