@@ -19,6 +19,7 @@ import org.springframework.security.web.authentication.SavedRequestAwareAuthenti
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -113,6 +114,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http
                 .authorizeRequests()
+
                 .antMatchers("/api/user/**").hasAnyRole("ROLE_USER")
                 .antMatchers("/api/admin/**").hasAnyRole("ROLE_ADMIN", "ROLE_USER")
                 .antMatchers("/api/**").permitAll()
@@ -122,13 +124,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                .authenticationEntryPoint((request, response, e) -> response.sendError(401))
                 .and()
                 .addFilter(new JwtAuthenticationFilter(authenticationManager()))
+
                 .addFilterBefore(new JwtAuthorizationFilter(authenticationManager()), UsernamePasswordAuthenticationFilter.class);
                 http.csrf().disable()
+
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS) // important permet de desactive la session.
                 .and().headers().frameOptions().disable();
 
 
     }
+
+
+
+
 
 
     @Bean

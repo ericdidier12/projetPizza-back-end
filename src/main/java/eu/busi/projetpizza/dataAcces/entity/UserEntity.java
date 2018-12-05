@@ -38,7 +38,7 @@ public class UserEntity extends BaseEntity implements UserDetails {
 
     @Basic
     @NotNull
-    //@Size(min = 3, max = 15, message = "Your password must between 3 and 15 characters")
+//    @Size(min = 3, max = 15, message = "Your password must between 3 and 15 characters")
     @Column(nullable = false)
     private String password;
 
