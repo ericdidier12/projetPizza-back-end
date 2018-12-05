@@ -1,30 +1,30 @@
 package eu.busi.projetpizza.filter;
 
+import eu.busi.projetpizza.controllerrest.UserController;
 import eu.busi.projetpizza.dataAcces.entity.Authority;
 import eu.busi.projetpizza.model.Constants;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.security.Principal;
 import java.util.List;
 import java.util.stream.Collectors;
 
 /**
  * <br/>
- * <p>  Classe qui va intervenir pour chaque requete dont ( toute Demande une resource necessitant l'autgentification)
+ * <p>  Classe qui va intervenir pour chaque requete dont (  Demande une resource necessitant l'autgentification)
  * <br/> a chaque fois  vous envoyez une requette ce filtre va analayse cette requête.</p>
  * <br/>
  * <p>
@@ -33,10 +33,10 @@ import java.util.stream.Collectors;
 public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
 
     private final Logger LOG = LoggerFactory.getLogger(JwtAuthorizationFilter.class);
-
     public JwtAuthorizationFilter(AuthenticationManager authenticationManager) {
         super(authenticationManager);
     }
+
 
     /**
      * </br>
@@ -67,8 +67,7 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
        else {
             UsernamePasswordAuthenticationToken authentication = getAuthentication(header);
             SecurityContextHolder.getContext().setAuthentication(authentication); // dans le context de security de spring je vais charge utilisateur authentifier
-
-           chain.doFilter(request, response);
+            chain.doFilter(request, response);
 
         }
 

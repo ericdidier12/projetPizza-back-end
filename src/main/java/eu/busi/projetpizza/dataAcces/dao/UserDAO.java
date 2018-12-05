@@ -23,7 +23,7 @@ import java.util.List;
 @Primary
 @Service
 @Transactional
-public class UserDAO implements UserDetailsService {
+public class UserDAO {
     private final UserRepository userRepository;
     private final AuthorityRepository authorityRepository;
 
@@ -38,8 +38,7 @@ public class UserDAO implements UserDetailsService {
 
     }
 
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+     public UserEntity loadUserByUsername(String username) throws UsernameNotFoundException {
         UserEntity found = userRepository.findByUsername(username);
         if (found == null) {
             throw new UsernameNotFoundException("Username not found"); // Exception il est fourni par Spring

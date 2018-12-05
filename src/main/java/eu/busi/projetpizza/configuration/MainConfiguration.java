@@ -17,7 +17,7 @@ import java.util.Locale;
  * et c'est un nouveau resolver de vu qui dit que tout nos views doit être  spécifier dans le repertoire
  * WEB-INF/JSP
  */
-@Configuration
+//@Configuration
 public class MainConfiguration extends WebMvcConfigurerAdapter {
 
 

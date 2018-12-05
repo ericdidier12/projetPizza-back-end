@@ -27,14 +27,14 @@ public class UserConverter {
         user.setName(userEntity.getName());
         user.setEmail(userEntity.getEmail());
         user.setPassword(userEntity.getPassword());
-        user.setAccountNonExpired(userEntity.isAccountNonExpired());
-        user.setAccountNonLocked(userEntity.isAccountNonLocked());
-        user.setCredentialsNonExpired(userEntity.isCredentialsNonExpired());
-        user.setEnabled(userEntity.isEnabled());
-        user.setBirth_date(userEntity.getBirth_date());
-        user.setAuthorities(userEntity.getAuthorities());
-        user.setBirth_date(userEntity.getBirth_date());
-        user.setAdress(userEntity.getAdressEntity() );
+        //user.setAccountNonExpired(userEntity.isAccountNonExpired());
+        //user.setAccountNonLocked(userEntity.isAccountNonLocked());
+        //user.setCredentialsNonExpired(userEntity.isCredentialsNonExpired());
+        //user.setEnabled(userEntity.isEnabled());
+        //user.setBirth_date(userEntity.getBirth_date());
+        //user.setAuthorities(userEntity.getAuthorities());
+        //user.setBirth_date(userEntity.getBirth_date());
+        //user.setAdress(userEntity.getAdressEntity() );
         return user;
     }
 
@@ -55,11 +55,11 @@ public class UserConverter {
         userEntity.setPassword(user.getPassword());
         userEntity.setEmail(user.getEmail() );
         userEntity.setBirth_date(user.getBirth_date());
-        userEntity.setAccountNonExpired(user.isAccountNonExpired());
-        userEntity.setAccountNonLocked(user.isAccountNonLocked());
-        userEntity.setCredentialsNonExpired(user.isCredentialsNonExpired());
-        userEntity.setEnabled(user.isEnabled());
-        userEntity.setAuthorities(user.getAuthorities());
+        //userEntity.setAccountNonExpired(user.isAccountNonExpired());
+        //userEntity.setAccountNonLocked(user.isAccountNonLocked());
+        //userEntity.setCredentialsNonExpired(user.isCredentialsNonExpired());
+        //userEntity.setEnabled(user.isEnabled());
+       // userEntity.setAuthorities(user.getAuthorities());
         userEntity.setAdressEntity(user.getAdress());
         List<OderEntity> oderEntities = new ArrayList<>();
         if (user.getOders() != null) {

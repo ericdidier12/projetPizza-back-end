@@ -95,6 +95,8 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                 .setExpiration(new Date(System.currentTimeMillis() + Constants.EXPIRATION_TIME)) //delait expiration
                 .signWith(SignatureAlgorithm.HS512,Constants.SECRET) // Je vais signe se token avec le mot de passe HS512 + le mot de passe
                 .compact();
-        response.addHeader(Constants.HEADER_STRING, Constants.TOKEN_PREFIX+token);
+        if (response.getHeader(Constants.HEADER_STRING) == null || response.getHeader(Constants.HEADER_STRING).isEmpty()) {
+            response.addHeader(Constants.HEADER_STRING, Constants.TOKEN_PREFIX + token);
+        }
     }
 }
