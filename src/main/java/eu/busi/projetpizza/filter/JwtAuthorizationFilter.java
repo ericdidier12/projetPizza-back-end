@@ -10,6 +10,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
 import javax.servlet.FilterChain;
@@ -64,7 +65,8 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
        else {
             UsernamePasswordAuthenticationToken authentication = getAuthentication(header);
             SecurityContextHolder.getContext().setAuthentication(authentication); // dans le context de security de spring je vais charge utilisateur authentifier
-            chain.doFilter(request, response);
+
+           chain.doFilter(request, response);
 
         }
 

@@ -91,7 +91,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
 
-//       http.csrf().disable();
+       http.csrf().disable();
 //        http
 //                .authorizeRequests()
 //                .antMatchers(AUTHORIZED_REQUESTS_ADMIN).hasRole("ADMIN")
@@ -119,7 +119,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/**").permitAll()
                 .anyRequest().authenticated()
                 .and().exceptionHandling()
-                .authenticationEntryPoint((request, response, e) -> response.sendError(401))
+               .authenticationEntryPoint((request, response, e) -> response.sendError(401))
                 .and()
                 .addFilter(new JwtAuthenticationFilter(authenticationManager()))
                 .addFilterBefore(new JwtAuthorizationFilter(authenticationManager()), UsernamePasswordAuthenticationFilter.class);

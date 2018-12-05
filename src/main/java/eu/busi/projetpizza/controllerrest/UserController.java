@@ -2,6 +2,7 @@ package eu.busi.projetpizza.controllerrest;
 
 import eu.busi.projetpizza.dataAcces.dao.UserDAO;
 import eu.busi.projetpizza.dataAcces.entity.UserEntity;
+import eu.busi.projetpizza.dataAcces.util.UserConverter;
 import eu.busi.projetpizza.enums.RoleEnum;
 import eu.busi.projetpizza.model.User;
 import eu.busi.projetpizza.service.UserService;
@@ -34,9 +35,9 @@ public class UserController {
     }
 
     @GetMapping("/user/whoami")
-    public ResponseEntity whoAmI(Principal principal) {
+    public User whoAmI(Principal principal) {
         UserEntity user = (UserEntity) userDetailsService.loadUserByUsername(principal.getName());
         user.setPassword(null);
-        return ResponseEntity.ok(user);
+        return UserConverter.userEntityToUserModel(user);
     }
 }
