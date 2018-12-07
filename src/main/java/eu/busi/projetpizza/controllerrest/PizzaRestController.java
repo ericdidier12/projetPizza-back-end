@@ -4,6 +4,7 @@ import eu.busi.projetpizza.dataAcces.dao.CategoryDAO;
 import eu.busi.projetpizza.dataAcces.dao.IngredientDAO;
 import eu.busi.projetpizza.dataAcces.dao.PizzaDAO;
 import eu.busi.projetpizza.dataAcces.entity.CategoryEntity;
+import eu.busi.projetpizza.model.Category;
 import eu.busi.projetpizza.model.Ingredient;
 import eu.busi.projetpizza.model.Pizza;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,4 +64,14 @@ public class PizzaRestController {
         }
         return pizzas;
     }
+
+
+    @RequestMapping(value = "/categories", method = RequestMethod.GET)
+    public List<Category> triCategoryByName() {
+          return categoryDAO.getListCategories();
+    }
+
+
+
+
 }
