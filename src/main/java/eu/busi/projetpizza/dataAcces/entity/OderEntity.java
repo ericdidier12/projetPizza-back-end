@@ -24,6 +24,8 @@ public class OderEntity extends BaseEntity {
     private float total_price;
     private boolean is_paid;
 
+
+
     @OneToMany(mappedBy = "oderEntity")
     private List<OrderLineEntity> orderlineentities;
 
@@ -86,7 +88,13 @@ public class OderEntity extends BaseEntity {
     public void setIs_paid(boolean is_paid) {
         this.is_paid = is_paid;
     }
+    public List<OrderLineEntity> getOrderlineentities() {
+        return orderlineentities;
+    }
 
+    public void setOrderlineentities(List<OrderLineEntity> orderlineentities) {
+        this.orderlineentities = orderlineentities;
+    }
     public Collection<PromoEntity> getPromoEntity() {
         return promoEntity;
     }

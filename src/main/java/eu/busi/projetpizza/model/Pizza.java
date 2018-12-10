@@ -4,6 +4,7 @@ package eu.busi.projetpizza.model;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Min;
 import java.util.List;
+import java.util.Objects;
 
 public class Pizza {
 
@@ -94,6 +95,19 @@ public class Pizza {
 
     public void setIngredients(List<Ingredient> ingredients) {
         this.ingredients = ingredients;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Pizza)) return false;
+        Pizza pizza = (Pizza) o;
+        return Objects.equals(getName(), pizza.getName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName());
     }
 }
 

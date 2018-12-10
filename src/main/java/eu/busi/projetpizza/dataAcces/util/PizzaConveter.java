@@ -4,12 +4,15 @@ import eu.busi.projetpizza.dataAcces.entity.IngredientEntity;
 import eu.busi.projetpizza.dataAcces.entity.PizzaEntity;
 import eu.busi.projetpizza.model.Ingredient;
 import eu.busi.projetpizza.model.Pizza;
+import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * created by  eric.nyandwi on Nov,12/11/2018
  */
+@Service
 public class PizzaConveter {
 
     public static Pizza pizzaEntityTopizzaModel(PizzaEntity pizzaEntity) {

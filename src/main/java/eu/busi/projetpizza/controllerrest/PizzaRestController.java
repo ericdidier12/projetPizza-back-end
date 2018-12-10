@@ -23,6 +23,7 @@ public class PizzaRestController {
 
     private final IngredientDAO ingredientDAO;
     private final CategoryDAO categoryDAO;
+
     public PizzaRestController(IngredientDAO ingredientDAO, CategoryDAO categoryDAO) {
         this.ingredientDAO = ingredientDAO;
         this.categoryDAO = categoryDAO;
