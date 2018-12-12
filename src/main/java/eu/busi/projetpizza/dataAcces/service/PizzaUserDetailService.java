@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
  * created by  eric.nyandwi on Dec,05/12/2018
  */
 @Service
-public class PizzaUserDetailService implements UserDetailsService {
+public  class  PizzaUserDetailService implements UserDetailsService {
 
     @Autowired
     private UserDAO userDao;

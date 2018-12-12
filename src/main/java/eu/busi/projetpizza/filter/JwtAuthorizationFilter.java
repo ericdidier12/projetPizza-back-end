@@ -54,7 +54,7 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
 
 
         String header = request.getHeader("Authorization");
-        LOG.info("token reçu : " + header);
+//        LOG.info("token reçu : " + header);
 
         if (header == null || !header.startsWith("Bearer ")) { // on verifier si le token est null ou ne contient pas le prefix defini je quitte
             chain.doFilter(request, response);

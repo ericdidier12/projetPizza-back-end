@@ -3,6 +3,7 @@ package eu.busi.projetpizza.dataAcces.entity;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "pizza")
@@ -83,5 +84,19 @@ public class PizzaEntity extends BaseEntity{
 
     public void setFixed(boolean fixed) {
         this.fixed = fixed;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof PizzaEntity)) return false;
+        if (!super.equals(o)) return false;
+        PizzaEntity that = (PizzaEntity) o;
+        return Objects.equals(getName(), that.getName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), getName());
     }
 }
