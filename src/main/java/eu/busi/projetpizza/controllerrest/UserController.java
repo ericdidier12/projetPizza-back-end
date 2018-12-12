@@ -2,6 +2,7 @@ package eu.busi.projetpizza.controllerrest;
 
 import eu.busi.projetpizza.dataAcces.dao.PizzaDAO;
 import eu.busi.projetpizza.dataAcces.dao.UserDAO;
+import eu.busi.projetpizza.dataAcces.entity.PizzaEntity;
 import eu.busi.projetpizza.dataAcces.entity.UserEntity;
 
 import eu.busi.projetpizza.dataAcces.repository.UserRepository;
@@ -18,6 +19,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * created by  eric.nyandwi on dec,01/12/2018
@@ -77,6 +80,38 @@ public class UserController {
         }
 
 
+        return currentUser;
+    }
+
+
+
+    @RequestMapping(value = "/user/deletePizzafavorie/{idPizza}", method = RequestMethod.GET)
+    public User deletePizzaFavorie(@PathVariable(value = "idPizza") Long idPizza) {
+        Pizza pizza = null;
+
+        User currentUser = UserConverter.userEntityToUserModel(
+                userDAO.loadUserByUsername(SecurityContextHolder.getContext().getAuthentication().getName()));
+
+        UserEntity userEntity = (UserEntity) userDAO.loadUserByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
+
+        if (pizzaDAO.findPizzaById(idPizza) != null && userEntity.getPizzasFavorites() != null) {
+            pizza = pizzaDAO.findPizzaById(idPizza);
+
+            List<PizzaEntity> toRemove = new ArrayList<>();
+            List<PizzaEntity> listPizzaUser = userEntity.getPizzasFavorites() ;
+
+            for(PizzaEntity  pizzaEntity : listPizzaUser){
+                if(  pizzaEntity.getId() == pizza.getId()){
+                    toRemove.add(pizzaEntity);
+                }
+            }
+
+            if( userEntity.getPizzasFavorites().removeAll(toRemove)) {
+                currentUser = UserConverter.userEntityToUserModel(userRepository.save(userEntity));
+
+            }
+
+        }
         return currentUser;
     }
 
