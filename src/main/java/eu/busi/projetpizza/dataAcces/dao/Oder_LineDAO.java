@@ -28,4 +28,12 @@ public class Oder_LineDAO {
         orderLineEntity = orderLineRepository.save(orderLineEntity);
         return OderLineConverter.order_lineEntityToOderModel(orderLineEntity);
     }
+
+    public void saveO(OrderLineEntity o){
+        orderLineRepository.save(o);
+    }
+
+    public  void delete(OrderLineEntity o){
+        orderLineRepository.delete(o);
+    }
 }

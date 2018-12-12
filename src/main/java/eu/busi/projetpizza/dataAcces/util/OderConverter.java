@@ -26,10 +26,10 @@ public class OderConverter {
         oder.setId(oderEntity.getId());
         oder.setDate_order(oderEntity.getDate_order());
         oder.setDelivery_price(oderEntity.getDelivery_price());
-        oder.setFull_price(oderEntity.getFull_price());
+       // oder.setFull_price(oderEntity.getFull_price());
         oder.setIs_paid(oderEntity.isIs_paid());
-        oder.setStatusEnum(oderEntity.getStatusEnum());
-        oder.setTotal_price(oderEntity.getTotal_price());
+       // oder.setStatusEnum(oderEntity.getStatusEnum());
+       // oder.setTotal_price(oderEntity.getTotal_price());
         Collection<Promo> promos  = new ArrayList<>();
         if (oderEntity.getPromoEntity() != null ){
             for (PromoEntity promo: oderEntity.getPromoEntity()) {
@@ -54,11 +54,11 @@ public class OderConverter {
         oderEntity.setId(oder.getId());
         oderEntity.setDate_order(oder.getDate_order());
         oderEntity.setDelivery_price(oder.getDelivery_price());
-        oderEntity.setFull_price(oder.getFull_price());
+       // oderEntity.setFull_price(oder.getFull_price());
         oderEntity.setIs_paid(oder.isIs_paid());
-        oderEntity.setStatusEnum(oder.getStatusEnum());
+       // oderEntity.setStatusEnum(oder.getStatusEnum());
         oderEntity.setUserEntity(UserConverter.userModelToUserEntity(oder.getUser()));
-        oderEntity.setTotal_price(oder.getTotal_price());
+     //   oderEntity.setTotal_price(oder.getTotal_price());
         Collection<PromoEntity> promoEntity  = new ArrayList<>();
         if (oder.getPromos() != null ){
             for (Promo promo: oder.getPromos()) {

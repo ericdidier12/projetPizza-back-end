@@ -3,6 +3,7 @@ package eu.busi.projetpizza.filter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import eu.busi.projetpizza.dataAcces.entity.UserEntity;
+import eu.busi.projetpizza.dataAcces.service.MyUserService;
 import eu.busi.projetpizza.model.Constants;
 import eu.busi.projetpizza.model.User;
 import io.jsonwebtoken.Jwts;
@@ -56,11 +57,14 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
 
         User user = null ;
+
+        MyUserService userService=new MyUserService();
         try {
             user = new ObjectMapper().readValue(request.getInputStream(), User.class);
             System.out.println("******************************");
             System.out.println("username :" + user.getUsername());
             System.out.println("password :" + user.getPassword());
+
             return authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword(), Collections.emptyList()));
         } catch (IOException e) {
             throw new RuntimeException(e);
