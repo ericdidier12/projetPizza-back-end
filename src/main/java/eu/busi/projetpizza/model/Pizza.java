@@ -14,6 +14,7 @@ public class Pizza {
     private boolean month_promo;
     private boolean fixed;
     private List<Order_Line> order_line;
+    private List<Pizza> pizzas ;
 
     @Min(value = 1)
     @Digits(integer = 2, fraction = 0 ,message = "must be greater than or equal to 1 ")
@@ -108,6 +109,14 @@ public class Pizza {
     @Override
     public int hashCode() {
         return Objects.hash(getName());
+    }
+
+    public List<Pizza> getPizzas() {
+        return pizzas;
+    }
+
+    public void setPizzas(List<Pizza> pizzas) {
+        this.pizzas = pizzas;
     }
 }
 

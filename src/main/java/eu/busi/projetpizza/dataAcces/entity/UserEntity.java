@@ -69,6 +69,20 @@ public class UserEntity extends BaseEntity implements UserDetails {
     @OneToMany(mappedBy = "userEntity", cascade = CascadeType.ALL)
     private List<OderEntity> oderEntities;
 
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "best_pizza",
+            joinColumns = @JoinColumn(name = "user_client_id"),
+            inverseJoinColumns = @JoinColumn(name = "pizza_id"))
+    private List<PizzaEntity> pizzasFavorites;
+
     public UserEntity() {
     }
 
@@ -171,5 +185,13 @@ public class UserEntity extends BaseEntity implements UserDetails {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<PizzaEntity> getPizzasFavorites() {
+        return pizzasFavorites;
+    }
+
+    public void setPizzasFavorites(List<PizzaEntity> pizzasFavorites) {
+        this.pizzasFavorites = pizzasFavorites;
     }
 }

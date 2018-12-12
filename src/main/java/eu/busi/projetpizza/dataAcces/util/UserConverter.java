@@ -1,8 +1,10 @@
 package eu.busi.projetpizza.dataAcces.util;
 
 import eu.busi.projetpizza.dataAcces.entity.OderEntity;
+import eu.busi.projetpizza.dataAcces.entity.PizzaEntity;
 import eu.busi.projetpizza.dataAcces.entity.UserEntity;
 import eu.busi.projetpizza.model.Oder;
+import eu.busi.projetpizza.model.Pizza;
 import eu.busi.projetpizza.model.User;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +29,12 @@ public class UserConverter {
         user.setName(userEntity.getName());
         user.setEmail(userEntity.getEmail());
         user.setPassword(userEntity.getPassword());
+
+        List<Pizza> pizzas = new ArrayList<>();
+        for (PizzaEntity  pizzaEntity : userEntity.getPizzasFavorites() ){
+            pizzas.add(PizzaConveter.pizzaEntityTopizzaModel(pizzaEntity));
+        }
+        user.setPizzas(pizzas);
         //
 //        user.setAccountNonExpired(userEntity.isAccountNonExpired());
 //        user.setAccountNonLocked(userEntity.isAccountNonLocked());
@@ -72,6 +80,19 @@ public class UserConverter {
             }
             userEntity.setOderEntities(oderEntities);
         }
+
+        List<PizzaEntity> pizzaEntities = new ArrayList<>();
+
+         for (Pizza pizza : user.getPizzas()){
+             pizzaEntities.add(PizzaConveter.pizzaModelTopizzaEntity(pizza));
+         }
+
+         userEntity.setPizzasFavorites(pizzaEntities);
         return userEntity;
     }
+
+
+
+
+
 }

@@ -37,8 +37,10 @@ public class User {
     private boolean credentialsNonExpired;
     private boolean enabled;
     private List<Authority> authorities;
+    private List<Pizza> pizzas;
 
-   @DateTimeFormat(pattern = "MM/dd/yyyy")
+
+    @DateTimeFormat(pattern = "MM/dd/yyyy")
     private LocalDate birth_date;
 
     @NotEmpty(message = "adresse can't be empty")
@@ -154,4 +156,11 @@ public class User {
         this.name = name;
     }
 
+    public List<Pizza> getPizzas() {
+        return pizzas;
+    }
+
+    public void setPizzas(List<Pizza> pizzas) {
+        this.pizzas = pizzas;
+    }
 }
