@@ -49,7 +49,7 @@ public class PizzaRestController {
      * @return List of ingredients
      */
     @GetMapping(value = "/ingredients")
-    public List<Ingredient> getAllingredient(){
+    public List<Ingredient> getAllIngredients(){
         return ingredientDAO.getAllIngredients();
     }
 
