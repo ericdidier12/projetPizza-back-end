@@ -1,17 +1,16 @@
 package eu.busi.projetpizza.controllerrest;
 
+import eu.busi.projetpizza.dataAcces.dao.OderDAO;
 import eu.busi.projetpizza.dataAcces.dao.Oder_LineDAO;
 import eu.busi.projetpizza.dataAcces.dao.UserDAO;
 import eu.busi.projetpizza.dataAcces.entity.OderEntity;
 import eu.busi.projetpizza.dataAcces.entity.OrderLineEntity;
 import eu.busi.projetpizza.dataAcces.entity.UserEntity;
-import eu.busi.projetpizza.dataAcces.util.OderLineConverter;
+import eu.busi.projetpizza.dataAcces.util.OderConverter;
 import eu.busi.projetpizza.dataAcces.util.PizzaConveter;
 import eu.busi.projetpizza.model.Panier;
 import eu.busi.projetpizza.model.Pizza;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,23 +30,30 @@ public class CardRestController {
     @Autowired
     private Oder_LineDAO orderLineDAO;
 
+    @Autowired
+    private OderDAO orderDAO;
+
 
 // a mettre dans le service
 
     public List<Panier> getPizzaFromDb() {
-        Optional<UserEntity> user = Optional.ofNullable(userDAO.loadUserByUsername(SecurityContextHolder.getContext().getAuthentication().getName()));
-        Optional<OderEntity> order = user.get().getOderEntities().stream().filter(x -> x.isIs_paid() == false).findFirst();
+        String loggedUserName = SecurityContextHolder.getContext().getAuthentication().getName();
+        UserEntity user = userDAO.loadUserByUsername(loggedUserName); // NEWLY
+        OderEntity order = user.getOderEntities().stream().filter(x -> x.isIs_paid() == false).findFirst().get();
+
+
 
         List<Panier> pTransit = new ArrayList<>();
 
-        if (order.isPresent()) {
-            OderEntity orderPresent = order.get();
-            for (OrderLineEntity o : orderPresent.getOrderLineEntities()) {
+        if (order != null) {
+            List<OrderLineEntity> orderLineEntities = order.getOrderLineEntities();
+            for (OrderLineEntity o : orderLineEntities) {
                 Pizza p = pizzaConveter.pizzaEntityTopizzaModel(o.getPizzaOrderLineEntity());
                 int q = o.getNumber_of_pizza();
                 pTransit.add(new Panier(p, q));
             }
         }
+        orderDAO.save(OderConverter.oderEntityToOderModel(order));
         return pTransit;
     }
 
@@ -116,7 +122,7 @@ public class CardRestController {
 
 
     @PostMapping(value = "/getCard")
-    public void mergeCart(@RequestBody Panier[] cart) {
+    public List<Panier> mergeCart(@RequestBody Panier[] cart) {
 
 
 
@@ -133,31 +139,41 @@ public class CardRestController {
                     if (ole.getPizzaOrderLineEntity().getName().equals(entry.getPizza().getName())) {
                         ole.setNumber_of_pizza(ole.getNumber_of_pizza() + entry.getQuantity());
                         orderLineDAO.saveO(ole);
+
                         trouve=true;
                     }
                 }
                 if (trouve==false){
+
                     OrderLineEntity newOrderLine = new OrderLineEntity();
                     newOrderLine.setOderEntity(order);
                     newOrderLine.setPizzaOrderLineEntity(PizzaConveter.pizzaModelTopizzaEntity(entry.getPizza()));
                     newOrderLine.setNumber_of_pizza(entry.getQuantity());
+                    List<OrderLineEntity> orderLineEntities =order.getOrderLineEntities();
+                    orderLineEntities.add(newOrderLine);
+                    order.setOrderLineEntities(orderLineEntities);
                     orderLineDAO.saveO(newOrderLine);
+
                 }
 
             }
 
         }
 
-    }
-
-
-    @GetMapping(value = "/mergeCard")
-    public List<Panier> getPanierInDB() {
-
         List<Panier> panierTransit = this.getPizzaFromDb();
 
 
         return panierTransit;
     }
+
+
+//    @GetMapping(value = "/mergeCard")
+//    public List<Panier> getPanierInDB() {
+//
+//        List<Panier> panierTransit = this.getPizzaFromDb();
+//
+//
+//        return panierTransit;
+//    }
 
 }

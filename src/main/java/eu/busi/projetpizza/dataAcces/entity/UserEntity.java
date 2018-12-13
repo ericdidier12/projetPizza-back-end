@@ -66,7 +66,7 @@ public class UserEntity extends BaseEntity implements UserDetails {
 
     private String adresse;
 
-    @OneToMany(mappedBy = "userEntity", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "userEntity")
     private List<OderEntity> oderEntities;
 
     public String getAdresse() {

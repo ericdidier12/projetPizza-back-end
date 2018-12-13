@@ -26,7 +26,7 @@ public class PizzaEntity extends BaseEntity{
     @JoinColumn(name = "cat_id")
     private CategoryEntity categoryEntity;
 
-    @ManyToMany(mappedBy = "pizzaEntitiesList", fetch = FetchType.EAGER,cascade = {CascadeType.MERGE,CascadeType.REFRESH})
+    @ManyToMany(mappedBy = "pizzaEntitiesList", fetch = FetchType.EAGER)
     private List<IngredientEntity> ingredientEntityList;
 
     @Transient
