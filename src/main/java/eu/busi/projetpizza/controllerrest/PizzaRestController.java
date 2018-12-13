@@ -29,6 +29,7 @@ public class PizzaRestController {
     private final CategoryDAO categoryDAO;
     private final PizzaDAO pizzaDAO;
     private static float PRICE_OF_INGREDIENTS = 3;
+
     public PizzaRestController(CategoryDAO categorieDAO, IngredientDAO ingredientDAO, CategoryDAO categoryDAO, PizzaDAO pizzaDAO) {
         this.categorieDAO = categorieDAO;
         this.ingredientDAO = ingredientDAO;

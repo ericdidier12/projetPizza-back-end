@@ -29,12 +29,16 @@ public class UserConverter {
         user.setName(userEntity.getName());
         user.setEmail(userEntity.getEmail());
         user.setPassword(userEntity.getPassword());
-
+//----
         List<Pizza> pizzas = new ArrayList<>();
-        for (PizzaEntity  pizzaEntity : userEntity.getPizzasFavorites() ){
-            pizzas.add(PizzaConveter.pizzaEntityTopizzaModel(pizzaEntity));
+
+            for (PizzaEntity pizzaEntity : userEntity.getPizzasFavorites()) {
+                pizzas.add(PizzaConveter.pizzaEntityTopizzaModel(pizzaEntity));
+
         }
         user.setPizzas(pizzas);
+
+//----
         //
 //        user.setAccountNonExpired(userEntity.isAccountNonExpired());
 //        user.setAccountNonLocked(userEntity.isAccountNonLocked());
@@ -71,23 +75,28 @@ public class UserConverter {
         userEntity.setCredentialsNonExpired(user.isCredentialsNonExpired());
         userEntity.setEnabled(user.isEnabled());
         userEntity.setAuthorities(user.getAuthorities());
-        //
         userEntity.setAdressEntity(user.getAdress());
-        List<OderEntity> oderEntities = new ArrayList<>();
-        if (user.getOders() != null) {
-            for (Oder command : user.getOders()) {
-                oderEntities.add(OderConverter.oderModelToOderrEntity(command));
-            }
-            userEntity.setOderEntities(oderEntities);
-        }
+
+
+//        List<OderEntity> oderEntities = new ArrayList<>();
+//        if (user.getOders() != null) {
+//            for (Oder command : user.getOders()) {
+//                oderEntities.add(OderConverter.oderModelToOderrEntity(command));
+//            }
+//            userEntity.setOderEntities(oderEntities);
+//        }
+        //----
 
         List<PizzaEntity> pizzaEntities = new ArrayList<>();
 
-         for (Pizza pizza : user.getPizzas()){
-             pizzaEntities.add(PizzaConveter.pizzaModelTopizzaEntity(pizza));
-         }
-
+        if (user.getPizzas() !=null) {
+            for (Pizza pizza : user.getPizzas()) {
+                pizzaEntities.add(PizzaConveter.pizzaModelTopizzaEntity(pizza));
+            }
+        }
          userEntity.setPizzasFavorites(pizzaEntities);
+        //----
+
         return userEntity;
     }
 
