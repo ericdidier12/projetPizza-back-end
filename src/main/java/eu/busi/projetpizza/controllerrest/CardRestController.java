@@ -166,14 +166,4 @@ public class CardRestController {
         return panierTransit;
     }
 
-
-//    @GetMapping(value = "/mergeCard")
-//    public List<Panier> getPanierInDB() {
-//
-//        List<Panier> panierTransit = this.getPizzaFromDb();
-//
-//
-//        return panierTransit;
-//    }
-
 }

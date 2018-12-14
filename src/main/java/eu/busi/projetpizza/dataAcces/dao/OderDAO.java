@@ -26,8 +26,5 @@ public class OderDAO {
         oderEntity = orderRepository.save(oderEntity);
         return OderConverter.oderEntityToOderModel(oderEntity);
     }
-    public Oder loadOrderById(long Id) {
-        OderEntity oderEntity = orderRepository.findOne(Id);
-        return OderConverter.oderEntityToOderModel(oderEntity);
-    }
+
 }

@@ -447,3 +447,22 @@ ALTER TABLE ONLY public.user_client
 ALTER TABLE ONLY public.user_client_authorities
     ADD CONSTRAINT fkighfd9fafj7ych0eflohpb6n4 FOREIGN KEY (user_entity_id) REFERENCES public.user_client(id);
 
+
+--------------------------  best_pizza  ------------------------------
+
+CREATE TABLE public.best_pizza (user_client_id integer NOT NULL, pizza_id integer NOT NULL);
+
+ALTER TABLE public.best_pizza OWNER TO pizzeriadb;
+-------------------------------------------------------------------------
+-- Name: best_pizza fk_best_pizza_user_client_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.best_pizza
+    ADD CONSTRAINT fk_best_pizza_user_client_id FOREIGN KEY (user_client_id) REFERENCES public.user_client(id);
+
+-- Name: best_pizza fk_best_pizza_pizza_id; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.best_pizza
+    ADD CONSTRAINT fk_best_pizza_pizza_id FOREIGN KEY (pizza_id) REFERENCES public.pizza(id);
+
